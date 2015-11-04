@@ -21,10 +21,6 @@
 <h4>Please login first：</h4>
 <table title="Login" border="2" >
 <tr>
-	<td>E-mail:</td> 
-	<td><input type="email" name="email" width=autofixedwidth></td>
-</tr>
-<tr>
 	<td>UserName:</td>
 	<td><input type="text" name="username" width="150"></td>
 </tr>
@@ -32,19 +28,10 @@
 	<td>Password:</td> 
 	<td><input type="password" name="password" width="150"></td>
 </tr>
-<tr>
-	<td>Favorite:</td> 
-	<td><input type="checkbox" name="favorite" value="Alpha">Alpha<br>
-	<input type="checkbox" name="favorite" value="Beta">Beta<br>
-	<input type="checkbox" name="favorite" value="Gamma">Gamma<br>
-	<input type="checkbox" name="favorite" value="Delta">Delta</td>
-</tr>
 <tr align="center">
-	<td colspan="2"><input type="submit", name="login" value="Login"></td>
+	<td colspan="2"><input type="submit" name="login" value="Login"></td>
 </tr>
 </table>
 </form>
-<br>
-<a href="dologin.jsp?username=自强">测试URL传参数</a>
 </body>
 </html>
