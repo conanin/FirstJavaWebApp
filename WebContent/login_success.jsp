@@ -7,6 +7,6 @@
 </head>
 <body>
 <h1>Congratulation! Login Successfully!</h1>
-Welcome <b><%=session.getAttribute("username") %></b><br>
+Welcome <b><font color="green"><%=session.getAttribute("username") %></font></b><br>
 </body>
 </html>

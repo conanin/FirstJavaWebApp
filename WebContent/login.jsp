@@ -17,7 +17,8 @@
 %>
 <br>
 <br>
-<form caption= "Login Caption" name = "loginForm" action="dologin.jsp" method = "post" >
+<!-- <form caption= "Login Caption" name = "loginForm" action="dologin.jsp" method = "post" > -->
+<form caption= "Login Caption" name = "loginForm" action="dologin.jsp?loginformParam1=alpha" method = "post" >
 <h4>Please login first：</h4>
 <table title="Login" border="2" >
 <tr>
