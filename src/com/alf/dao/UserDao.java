@@ -7,7 +7,7 @@ import com.alf.entity.*;
 * @version:  
 * @Creation date£º Nov 5, 2015 2:47:15 PM 
 */
-public class UserDao {
+public class UserDAO {
 	
 	public boolean userLogin( User user )
 	{

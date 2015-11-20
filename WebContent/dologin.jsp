@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page import = "java.net.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,6 +32,37 @@
 		session.setAttribute("username", myUser.getUsername()); 
 	%>
 	<h1>Set Property Action Element</h1>
+	<%
+		String[] isUseCookies = request.getParameterValues( "isUseCookie" );
+		//Check if the checkbox "Remember me in 3 days" is checked.	
+		if( isUseCookies != null && isUseCookies.length > 0 )
+		{
+			
+			String username = URLEncoder.encode( request.getParameter( "username" ), "utf-8");
+			String password = URLEncoder.encode( request.getParameter( "password" ), "utf-8");
+			Cookie usernameCookie = new Cookie( "username", username );
+			Cookie passwordCookie = new Cookie( "password", password );
+			usernameCookie.setMaxAge( 86400 * 3 );
+			passwordCookie.setMaxAge( 86400 * 3 );
+			response.addCookie( usernameCookie );
+			response.addCookie( passwordCookie );
+		}
+		else
+		{
+			Cookie[] cookies = request.getCookies();
+			if( cookies != null  && cookies.length > 0 )
+			{
+				for( Cookie c: cookies )
+				{
+					if( c.getName().equals( "username" ) || c.getName().equals("password"))
+					{
+						c.setMaxAge( 0 );  //Set the cookie disable.
+						response.addCookie( c ); // re-save cookie.
+					}
+				}
+			}
+		}
+	%>
 	<%
 		if( userDao.userLogin(myUser))
 		{
@@ -79,5 +111,6 @@
 	username from getProperty: <jsp:getProperty name="myUser" property="username"/><br>
 	username from getProperty: <jsp:getProperty name="myUser" property="password"/><br>
 	username from getProperty: <jsp:getProperty name="myUser" property="email"/><br>
+	<%-- <jsp:param name="email" value="admin@hpe.com"/> --%>
 </body>
 </html>
