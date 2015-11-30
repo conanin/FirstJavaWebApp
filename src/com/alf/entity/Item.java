@@ -6,8 +6,32 @@ package com.alf.entity;
  * @version:
  * @Creation date£º Nov 16, 2015 3:32:56 PM
  */
-public class Items {
+public class Item {
 	private int id;
+	
+	public Item(int id) 
+	{
+		super();
+		this.id = id;
+	}
+	
+	public Item()
+	{
+		
+	}
+
+	public Item(int id, String name, String city, int price, int number, String picture) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.city = city;
+		this.price = price;
+		this.number = number;
+		this.picture = picture;
+	}
+
+
+
 	private String name;
 	private String city;
 	private int price;
@@ -62,4 +86,37 @@ public class Items {
 		this.picture = picture;
 	}
 
+	@Override
+	public int hashCode() 
+	{
+		return ( this.getId() + this.getName() ).hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		boolean isEqual = false;
+		if( this == obj )
+		{ 
+			isEqual = true;
+		}
+		if( obj instanceof Item )
+		{
+			Item item = (Item)obj;
+			if( this.getId() == item.getId() && this.getName().equals(item.getName()))
+			{
+				isEqual = true;
+			}
+		}
+		
+		return isEqual;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return this.getId() + ":\t" + this.getName() ;
+	}
+
+	
 }

@@ -13,8 +13,8 @@ import com.alf.util.DBHelper;
  */
 public class ItemsDAO {
 
-	public ArrayList<Items> getAllItems() {
-		ArrayList<Items> allItems = new ArrayList<Items>();
+	public ArrayList<Item> getAllItems() {
+		ArrayList<Item> allItems = new ArrayList<Item>();
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -26,7 +26,7 @@ public class ItemsDAO {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				Items items = new Items();
+				Item items = new Item();
 				items.setId(rs.getInt("id"));
 				items.setName(rs.getString("name"));
 				items.setCity(rs.getString("city"));
@@ -60,8 +60,8 @@ public class ItemsDAO {
 	//TODO: watch into root cause.
 	//Solution: executeQuery() method of PrepareStatement should be invoked rather than executeQuery(SQL) method of Statement.
 	//The method does not work, SQL syntax exception is thrown when execute line 70.
-	public Items getItemsById_old(int id) {
-		Items items = new Items();
+	public Item getItemsById_old(int id) {
+		Item items = new Item();
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -110,7 +110,7 @@ public class ItemsDAO {
 		return items;
 	}
 	
-	public Items getItemsById(int id) 
+	public Item getItemsById(int id) 
 	{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -122,7 +122,7 @@ public class ItemsDAO {
 			stmt.setInt(1, id);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				Items item = new Items();
+				Item item = new Item();
 				item.setId(rs.getInt("id"));
 				item.setName(rs.getString("name"));
 				item.setCity(rs.getString("city"));
@@ -159,10 +159,10 @@ public class ItemsDAO {
 		}
 	}
 	
-	public ArrayList<Items> getViewList(String list)
+	public ArrayList<Item> getViewList(String list)
 	{
 		System.out.println("list:"+list);
-		ArrayList<Items> itemlist = new ArrayList<Items>();
+		ArrayList<Item> itemlist = new ArrayList<Item>();
 		int iCount=5; 
 		if(list!=null&&list.length()>0)
 		{

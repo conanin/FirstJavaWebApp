@@ -2,7 +2,7 @@ package com.alf.dao;
 
 import org.junit.Test;
 
-import com.alf.entity.Items;
+import com.alf.entity.Item;
 
 import org.junit.Assert;
 
@@ -17,7 +17,7 @@ public class TestItemsDAO {
    public void testGetItemsById()
    {
 	   ItemsDAO dao = new ItemsDAO();
-	   Items item = dao.getItemsById_old(3);
+	   Item item = dao.getItemsById_old(3);
 	   //Items item = dao.getItemsById(3);
 	   System.out.println( item.getName() );
 	   Assert.assertTrue( item.getName().equals("�Ϳ��˶�Ь"));

@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import="com.alf.dao.ItemsDAO,com.alf.entity.Items,java.util.*" %>
+<%@ page import="com.alf.dao.ItemsDAO" %>
+<%@ page import="com.alf.entity.Item" %>
+<%@ page import="java.util.*" %>
 <%
 String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String basePath = request.getScheme() + "://"+request.getServerName() + ":"+request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<style type="text/css">
+	<style type="text/css">
 	   div{
 	      float:left;
 	      margin: 10px;
@@ -29,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   }
 	   div dd.dd_name
 	   {
-	      color:blue;
+	      color:blue;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 	   }
 	   div dd.dd_city
 	   {
@@ -45,12 +47,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr>
 		<td>
 		<%
-			ArrayList<Items> items = ( new ItemsDAO()).getAllItems();
+			ArrayList<Item> items = ( new ItemsDAO()).getAllItems();
 			if( items != null && items.size() > 0)
 			{
 				for( int i = 0; i < items.size(); i ++ )
 				{
-					Items item = items.get(i);
+					Item item = items.get(i);
 		%>
 		<div>
 			<dl>

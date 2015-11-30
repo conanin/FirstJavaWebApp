@@ -25,7 +25,7 @@
    }
 --%>
 	<jsp:useBean id="myUser" class="com.alf.entity.User"  scope="page"/>
-	<jsp:useBean id="userDao" class="com.alf.dao.UserDao"  scope="page"/>
+	<jsp:useBean id="userDao" class="com.alf.dao.UserDAO"  scope="page"/>
 	<jsp:setProperty property="*" name="myUser"/>
 	<%
 		request.setCharacterEncoding("utf-8");

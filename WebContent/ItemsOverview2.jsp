@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
-<%@ page import="com.alf.dao.ItemsDAO,com.alf.entity.Items,java.util.*" %>
+<%@ page import="com.alf.dao.ItemsDAO,com.alf.entity.Item,java.util.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -51,12 +51,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <!-- 商品循环开始 -->
            <% 
                ItemsDAO itemsDao = new ItemsDAO(); 
-               ArrayList<Items> list = itemsDao.getAllItems();
+               ArrayList<Item> list = itemsDao.getAllItems();
                if(list!=null&&list.size()>0)
                {
 	               for(int i=0;i<list.size();i++)
 	               {
-	                  Items item = list.get(i);
+	                  Item item = list.get(i);
            %>   
           <div>
              <dl>
